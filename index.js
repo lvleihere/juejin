@@ -128,6 +128,9 @@ program
     .then(res => {
       var reqData=res.body.d.entrylist;
       for (var i = 0; i < reqData.length; i++) {
+        if (reqData[i].type!="post") {
+          reqData[i].originalUrl="https://juejin.im/entry/"+reqData[i].objectId
+        }
         tableData[i]=[reqData[i].title,reqData[i].user.username,reqData[i].originalUrl];
     }
     }).then(()=>{
@@ -143,7 +146,7 @@ program
               },
               2: {
                   alignment: 'right',
-                  width: 60
+                  width: 50
               }
           }
       };
