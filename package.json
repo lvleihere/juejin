@@ -1,6 +1,6 @@
 {
   "name": "juejin",
-  "version": "1.0.0",
+  "version": "1.0.8",
   "description": "The command Tools of juejin.im.you can use this to get the new article from juejin.im",
   "main": "index.js",
   "scripts": {
@@ -16,11 +16,8 @@
   "author": "chengsixgold",
   "license": "ISC",
   "dependencies": {
-    "child_process": "^1.0.2",
+    "cli-table2": "^0.2.0",
     "commander": "^2.13.0",
-    "iconv-lite": "^0.4.19",
-    "node-echo": "^0.1.1",
-    "request": "^2.83.0",
     "superagent": "^3.8.2",
     "table": "^4.0.2"
   }
