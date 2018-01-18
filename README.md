@@ -1,5 +1,7 @@
 # juejin Command Line tools
 
+可运行最低的 Node 版本：6.9.4
+
 ## install
 
 ```bash
@@ -21,6 +23,7 @@ juejin.im网站分类以及命令
 |  工具资源  |  tools  |
 |  阅读  |  read  |
 |  人工智能  |  ai  |
+|  所有文章  |  all  |
 
 查看最新文章或者最热文章
 
@@ -32,6 +35,11 @@ juejin.im网站分类以及命令
 E.g:如果你想看到的是前端的最热内容
 ```bash
 juejin hot fe
+```
+
+获取帮助
+```bash
+juejin --help
 ```
 
 github 地址：[juejin](https://github.com/cheng2xin/juejin),不求 star , 求 issue 。
