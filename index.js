@@ -1,7 +1,8 @@
 #! /usr/bin/env node
+
 const program = require('commander')
 const request = require('superagent')
-const {table} = require('table')
+const { table } = require('table')
 var Table2 = require('cli-table2')
 
 // 初始化commander
@@ -105,11 +106,11 @@ if (!process.argv[2]) {
 program.parse(process.argv)
 
 // 获取查询结果
-function getResult (queryData, articleType) {
+function getResult(queryData, articleType) {
   var url
   if (articleType === 'hot') {
     url = 'https://timeline-merger-ms.juejin.im/v1/get_entry_by_rank'
-  }else {
+  } else {
     url = 'https://timeline-merger-ms.juejin.im/v1/get_entry_by_timeline'
   }
 
@@ -122,7 +123,7 @@ function getResult (queryData, articleType) {
         if (reqData[i].type != 'post') {
           reqData[i].originalUrl = 'https://juejin.im/entry/' + reqData[i].objectId
         }
-        tableData[i] = [reqData[i].title, reqData[i].user.username, reqData[i].originalUrl]
+        tableData[i]=[reqData[i].title,reqData[i].user.username,reqData[i].collectionCount,reqData[i].originalUrl]
       }
     }).then(() => {
     config = {
@@ -137,13 +138,17 @@ function getResult (queryData, articleType) {
         },
         2: {
           alignment: 'right',
+          width: 8
+        },
+        3: {
+          alignment: 'right',
           width: 50
         }
       }
     }
 
     // 添加表头
-    tableData.unshift(['最热文章', '作者', '文章链接（Command/Ctrl+鼠标左键链接可点击）']); // 注意数组索引, [0,1,2..]
+    tableData.unshift(['最热文章','作者','收藏','文章链接（Command/Ctrl+鼠标左键链接可点击）']); // 注意数组索引, [0,1,2..]
     output = table(tableData, config)
     console.log(output)
   })
@@ -152,7 +157,7 @@ function getResult (queryData, articleType) {
     })
 }
 
-function switchDir (dir) {
+function switchDir(dir) {
   switch (dir) {
     case 'android':
       queryData.category = '5562b410e4b00c57d9b94a92'
