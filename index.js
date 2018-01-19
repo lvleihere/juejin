@@ -60,6 +60,12 @@ program
  * 检测是否携带可选则hot或者new参数
  */
 if (program.hot) {
+  /***
+   * 可选指令
+   * -h         没有携带附加参数, 则program.hot为true
+   * -h [dir]   携带dir参数, program.hot为dir字符串
+   * 下方new参数同理
+   */
   if (program.hot !== true) {
     switchDir(program.hot)
   }
