@@ -160,7 +160,7 @@ program
         if (reqData[i].type!="post") {
           reqData[i].originalUrl="https://juejin.im/entry/"+reqData[i].objectId
         }
-        tableData[i]=[reqData[i].title,reqData[i].user.username,reqData[i].originalUrl];
+        tableData[i]=[reqData[i].title,reqData[i].user.username,reqData[i].collectionCount,reqData[i].originalUrl];
     }
     }).then(()=>{
       config = {
@@ -175,13 +175,17 @@ program
               },
               2: {
                   alignment: 'right',
+                  width: 8
+              },
+              3: {
+                  alignment: 'right',
                   width: 50
               }
           }
       };
 
       //添加表头
-      tableData.unshift(['最热文章','作者','文章链接（Command/Ctrl+鼠标左键链接可点击）']); // 注意数组索引, [0,1,2..]
+      tableData.unshift(['最热文章','作者','收藏','文章链接（Command/Ctrl+鼠标左键链接可点击）']); // 注意数组索引, [0,1,2..]
       output = table(tableData, config);
       console.log(output);
     })
