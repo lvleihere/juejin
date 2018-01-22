@@ -4,10 +4,11 @@ const program = require('commander')
 const request = require('superagent')
 const { table } = require('table')
 var Table2 = require('cli-table2')
+const toolsInfo = require('./package.json')
 
 // 初始化commander
 program
-  .version('0.0.1')
+  .version(toolsInfo.version, '-v, --version')
   .usage('juejin <cmd> [option]')
 
 var table2 = new Table2({
@@ -24,7 +25,6 @@ table2.push(
   ['pm', '产品'],
   ['tools', '工具资源'],
   ['read', '阅读'],
-
   ['ai', '人工智能'],
   ['all', '查看所有最新文章和最热文章']
 )
@@ -97,10 +97,9 @@ program
     getResult(queryData, 'new')
   })
 
-// 没有参数时显示帮助信息
 if (!process.argv[2]) {
-  program.help()
-  console.log()
+  switchDir(program.hot)
+  getResult(queryData, 'hot')
 }
 
 program.parse(process.argv)
@@ -123,35 +122,35 @@ function getResult(queryData, articleType) {
         if (reqData[i].type != 'post') {
           reqData[i].originalUrl = 'https://juejin.im/entry/' + reqData[i].objectId
         }
-        tableData[i]=[reqData[i].title,reqData[i].user.username,reqData[i].collectionCount,reqData[i].originalUrl]
+        tableData[i] = [reqData[i].title, reqData[i].user.username, reqData[i].collectionCount, reqData[i].originalUrl]
       }
     }).then(() => {
-    config = {
-      columns: {
-        0: {
-          alignment: 'left',
-          width: 30
-        },
-        1: {
-          alignment: 'right',
-          width: 10
-        },
-        2: {
-          alignment: 'right',
-          width: 8
-        },
-        3: {
-          alignment: 'right',
-          width: 50
+      config = {
+        columns: {
+          0: {
+            alignment: 'left',
+            width: 30
+          },
+          1: {
+            alignment: 'right',
+            width: 10
+          },
+          2: {
+            alignment: 'right',
+            width: 8
+          },
+          3: {
+            alignment: 'right',
+            width: 50
+          }
         }
       }
-    }
 
-    // 添加表头
-    tableData.unshift(['最热文章','作者','收藏','文章链接（Command/Ctrl+鼠标左键链接可点击）']); // 注意数组索引, [0,1,2..]
-    output = table(tableData, config)
-    console.log(output)
-  })
+      // 添加表头
+      tableData.unshift(['最热文章', '作者', '收藏', '文章链接（Command/Ctrl+鼠标左键链接可点击）']); // 注意数组索引, [0,1,2..]
+      output = table(tableData, config)
+      console.log(output)
+    })
     .catch(err => {
       console.error('err' + err)
     })
