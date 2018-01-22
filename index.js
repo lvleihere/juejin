@@ -54,7 +54,7 @@ if (program.fontend) {
 // 添加可选指令
 program
   .option('-h --hot [dir]', 'an dir argument')
-  .option('-n --new [dir]', 'an dir argument',)
+  .option('-n --new [dir]', 'an dir argument')
   .parse(process.argv)
 
 /***
@@ -190,6 +190,6 @@ function switchDir(dir) {
       queryData.category = 'all'
       break
     default:
-      
+
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "juejin",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "The command Tools of juejin.im.you can use this to get the new article from juejin.im",
   "main": "index.js",
   "scripts": {
