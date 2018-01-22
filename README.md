@@ -43,3 +43,7 @@ juejin --help
 ```
 
 github 地址：[juejin](https://github.com/cheng2xin/juejin),不求 star , 求 issue 。
+
+Contributor
+
+[WickedDogg](https://github.com/WickedDogg)
