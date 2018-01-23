@@ -32,12 +32,12 @@ juejin.im网站分类以及命令
 |  最新文章  |  new/-n/--new  |
 |  最热文章  |  hot/-h/--hot  |
 
-E.g:插件掘金所有的最热文章
+E.g:查看掘金所有的最热文章
 ```bash
 juejin
 ```
 
-E.g:如果你想看到的是前端的最热内容
+E.g:查看前端的最热内容
 ```bash
 juejin hot fe
 ```
