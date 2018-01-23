@@ -29,8 +29,13 @@ juejin.im网站分类以及命令
 
 |  文章类别  |  命令  |
 |------- | ------- |
-|  最新文章  |  new  |
-|  最热文章  |  hot  |
+|  最新文章  |  new/-n/--new  |
+|  最热文章  |  hot/-h/--hot  |
+
+E.g:插件掘金所有的最热文章
+```bash
+juejin
+```
 
 E.g:如果你想看到的是前端的最热内容
 ```bash
@@ -47,3 +52,4 @@ github 地址：[juejin](https://github.com/cheng2xin/juejin),不求 star , 求 
 Contributor
 
 [WickedDogg](https://github.com/WickedDogg)
+[ihoey](https://github.com/ihoey)
