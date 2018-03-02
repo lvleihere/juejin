@@ -9,7 +9,7 @@ const toolsInfo = require('./package.json')
 // 初始化commander
 program
   .version(toolsInfo.version, '-v, --version')
-  .usage('juejin <cmd> [option]')
+  .usage('<cmd> [option]')
 
 var table2 = new Table2({
   head: ['option', 'articleType'],
