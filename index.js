@@ -3,7 +3,7 @@
 const program = require('commander')
 const request = require('superagent')
 const { table } = require('table')
-var Table2 = require('cli-table2')
+const Table2 = require('cli-table2')
 const toolsInfo = require('./package.json')
 
 // 初始化commander
@@ -11,7 +11,7 @@ program
   .version(toolsInfo.version, '-v, --version')
   .usage('<cmd> [option]')
 
-var table2 = new Table2({
+let table2 = new Table2({
   head: ['option', 'articleType'],
   colWidths: [10, 30]
 })
@@ -36,12 +36,12 @@ program.on('--help', function () {
 })
 
 // 存储数据的表格
-var tableData = []
+let tableData = []
 
 // 输出表格数据
-var output
+let output
 
-var queryData = {
+let queryData = {
   src: 'sixgold',
   limit: 20,
   category: 'all'
@@ -106,7 +106,7 @@ program.parse(process.argv)
 
 // 获取查询结果
 function getResult(queryData, articleType) {
-  var url
+  let url
   if (articleType === 'hot') {
     url = 'https://timeline-merger-ms.juejin.im/v1/get_entry_by_rank'
   } else {
@@ -117,8 +117,8 @@ function getResult(queryData, articleType) {
   request.get(url)
     .query(queryData)
     .then(res => {
-      var reqData = res.body.d.entrylist
-      for (var i = 0; i < reqData.length; i++) {
+      let reqData = res.body.d.entrylist
+      for (let i = 0; i < reqData.length; i++) {
         if (reqData[i].type != 'post') {
           reqData[i].originalUrl = 'https://juejin.im/entry/' + reqData[i].objectId
         }
