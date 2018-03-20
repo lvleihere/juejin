@@ -1,6 +1,7 @@
 # juejin Command Line tools
 
-可运行最低的 Node 版本：6.9.4
+
+![juejincil](https://img.shields.io/badge/node-%3E6.9.4-green.svg)
 
 ## install
 
